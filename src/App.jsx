@@ -1,12 +1,12 @@
 import Header from './component/header/header'
-import MainSection from './component/appContent/MainSection'
+import RewardSection from './component/appContent/RewardSection'
 import Footer from './component/footer/footer'
 
 function App() {
   return (
     <>
       <Header />
-      <MainSection />
+      <RewardSection />
       <Footer />
     </>
   )

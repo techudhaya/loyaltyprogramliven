@@ -23,7 +23,7 @@ const Toggle = ({ id, checked, onChange }) => {
   );
 };
 
-const LoyaltyCard = ({ buyAmount, BonusAmount, isAppExclusive }) => {
+const RewardCard = ({ buyAmount, BonusAmount, isAppExclusive }) => {
   return (
     <div className='relative' >
       { isAppExclusive && (
@@ -31,16 +31,16 @@ const LoyaltyCard = ({ buyAmount, BonusAmount, isAppExclusive }) => {
           <span className="bg-[#f83b6e] rounded-2xl text-white absolute top-2 px-2 py-1 text-xs">App Exclusive</span>
         </div>
       )}
-      <div className="flex justify-between border cursor-pointer rounded-lg p-4 m-4 w-80 shadow-[0_3px_10px_rgb(0,0,0,0.2)]"
+      <div className="flex justify-center border cursor-pointer rounded-lg p-4 m-4 w-80 shadow-[0_3px_10px_rgb(0,0,0,0.2)]"
         onClick={() => window.location.href = 'https://liven.love/'}  
         >
-        <div >
+        <div className='flex-1'>
           <span>buy</span> <br/> <span className="text-2xl font-bold">${buyAmount}</span>
           </div>
-        <div className='flex justify-center items-center'>
+        <div className='flex items-center'>
           <img src='/coin.png' alt="coin" className="h-6 w-6" />
         </div>
-        <div className="text-lg text-[#70b3a9]">
+        <div className="text-lg text-[#70b3a9] flex-1 text-end">
           <span className='text-sm'>Bonus</span> <br/> <span className="text-2xl font-bold">${BonusAmount}</span>
         </div>
       </div>
@@ -49,7 +49,7 @@ const LoyaltyCard = ({ buyAmount, BonusAmount, isAppExclusive }) => {
   );
 }
 
-const MainSection = () => {
+const RewardSection = () => {
 
   const [purchaseAsGift, setPurchaseAsGift] = useState(false);
 
@@ -96,7 +96,7 @@ const MainSection = () => {
 
       <section className="flex flex-col items-center justify-center mt-8">
         {currentLoyalList.map((loyal, index) => (
-          <LoyaltyCard key={index} buyAmount={loyal.buyAmount} BonusAmount={loyal.BonusAmount}  isAppExclusive={loyal.isAppExclusive} />
+          <RewardCard key={index} buyAmount={loyal.buyAmount} BonusAmount={loyal.BonusAmount}  isAppExclusive={loyal.isAppExclusive} />
         ))}
       </section>
 
@@ -105,4 +105,5 @@ const MainSection = () => {
   );
 };
 
-export default MainSection;
+export default RewardSection
+;
